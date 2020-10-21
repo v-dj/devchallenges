@@ -30,8 +30,9 @@ h1 {
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
   align-items: center;
-  gap: 10vw;
+  gap: 90px;
   font-family: "Space Mono", monospace;
 
   img {
