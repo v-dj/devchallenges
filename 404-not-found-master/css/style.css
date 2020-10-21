@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Montserrat:wght@600&family=Space+Mono:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px 24px 42px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #333333;
+}
+
+h1 {
+  font-family: "Inconsolata", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.08em;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 10vw;
+  font-family: "Space Mono", monospace;
+}
+main img {
+  width: 100%;
+}
+main .message h2 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 71px;
+  letter-spacing: -0.05em;
+}
+main .message p {
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+  margin: 29px 0 67px;
+}
+main .message button {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 24px 43px;
+  background-color: #333333;
+  border: 3px solid transparent;
+  outline: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  main .message button:hover {
+    background: none;
+    color: #333333;
+    border: 3px solid #333333;
+    cursor: pointer;
+  }
+}
+
+footer {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 96px;
+}
+footer a,
+footer a:active,
+footer a:visited {
+  text-decoration: none;
+  color: inherit;
+  border-bottom: 1px solid #33333380;
+}
+
+/*# sourceMappingURL=style.css.map */
