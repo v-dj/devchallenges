@@ -68,6 +68,7 @@ main {
       font-family: "PT Serif", serif;
       font-size: 12px;
       text-transform: uppercase;
+      float: right;
     }
 
     h3 {
@@ -75,6 +76,7 @@ main {
       font-size: 18px;
       line-height: 27px;
       font-weight: 600;
+      clear: both;
     }
   }
 }
