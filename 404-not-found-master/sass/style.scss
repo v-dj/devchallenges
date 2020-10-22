@@ -8,10 +8,12 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 20px 24px 42px;
+  padding: 20px 4vw 42px;
 }
 
 .container {
+  width: 100%;
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,12 +34,17 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-items: center;
   align-items: center;
-  gap: 90px;
+  gap: 5vmax;
   font-family: "Space Mono", monospace;
 
-  img {
-    width: 100%;
+  aside {
+    max-width: 500px;
+
+    img {
+      width: 100%;
+    }
   }
+
   .message {
     h2 {
       font-weight: 700;
@@ -67,6 +74,14 @@ main {
       outline: none;
     }
     @media (hover: hover) and (pointer: fine) {
+      h2 {
+        font-size: 64px;
+        line-height: 95px;
+      }
+      p {
+        font-size: 24px;
+        line-height: 36px;
+      }
       button:hover {
         background: none;
         color: #333333;
