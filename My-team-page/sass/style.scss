@@ -56,10 +56,6 @@ main {
     margin-bottom: min(10vw, 50px);
     padding-right: min(3vw, 35px);
 
-    &:nth-child(3n + 2) {
-      padding-top: min(80px, 10vw);
-    }
-
     img {
       width: calc(100% - 22px);
       float: left;
@@ -80,6 +76,17 @@ main {
       line-height: 27px;
       font-weight: 600;
     }
+  }
+}
+
+@media (min-width: 995px) {
+  article:nth-child(3n + 2) {
+    padding-top: min(80px, 10vw);
+  }
+}
+@media (max-width: 994px) {
+  article:nth-child(2n) {
+    padding-top: min(80px, 10vw);
   }
 }
 
