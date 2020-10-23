@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@400;700&family=Montserrat:wght@300;500;600;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.line {
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  padding: 0.5em;
+}
+a.line.active {
+  font-weight: 700;
+  cursor: default;
+}
+a.line:not(.active)::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  opacity: 0;
+  border: 1px solid #ffffff80;
+  transition: all 0.3s;
+}
+a.line:hover::after {
+  opacity: 1;
+  left: 0;
+  width: 100%;
+}
+
+body {
+  background-color: #181719;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: min(42px, 4vw) min(76px, 6vw);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-family: "Crimson Pro", serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 8px;
+  border: 1px solid #ffffff;
+}
+header nav {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: min(50vw, 550px);
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6vw 2vw;
+  justify-content: space-between;
+  padding-top: min(80px, 10vw);
+}
+main .pres {
+  flex: 1 1 300px;
+}
+main .pres h2 {
+  font-family: "Lora", serif;
+  font-size: 48px;
+  line-height: 61px;
+  margin-bottom: 40px;
+}
+main .pres p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 48px;
+  width: 75%;
+}
+main .pres a.more {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  display: inline-flex;
+  align-items: center;
+}
+main .pres .more svg {
+  fill: #ffffff;
+  margin-left: 1em;
+  width: 18px;
+}
+main .credential {
+  flex: 1.5 1 450px;
+  display: grid;
+  grid-template-columns: 1fr max-content 2vw;
+  grid-template-rows: 1fr auto max-content;
+}
+main .credential > img {
+  width: 100%;
+  grid-area: 1/1/3/-1;
+}
+main .credential .card {
+  grid-area: 2/2/-1/3;
+  width: min(410px, 75vw);
+  padding: 16px 24px;
+  background-color: #181719;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+main .credential .card h3 {
+  font-family: "Lora", serif;
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 700;
+  margin-top: 1em;
+  padding-right: 25%;
+}
+main .credential .profil {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 1vw;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+main .credential .profil img.avatar {
+  width: 50px;
+  border-radius: 50%;
+  grid-row: 1/-1;
+}
+main .credential .profil p.name {
+  font-size: 14px;
+}
+main .credential .profil p.role {
+  font-size: 12px;
+}
+
+.nobreak {
+  white-space: nowrap;
+}
+
+footer {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  margin-top: min(100px, 12vw);
+  color: #a9a9a9;
+}
+footer a,
+footer a:active,
+footer a:visited {
+  border-bottom: 1px solid currentColor;
+}
+
+/*# sourceMappingURL=style.css.map */
