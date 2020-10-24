@@ -7,34 +7,40 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-a.line {
-  color: inherit;
-  text-decoration: none;
-  position: relative;
-  padding: 0.5em;
-}
-a.line.active {
+a.active {
   font-weight: 700;
   cursor: default;
 }
-a.line:not(.active)::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  opacity: 0;
-  border: 1px solid #ffffff80;
-  transition: all 0.3s;
+
+@media (hover: hover) and (pointer: fine) {
+  a.underline {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    padding: 0.5em;
+  }
+  a.underline:not(.active)::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    opacity: 0;
+    border: 1px solid #ffffff80;
+    transition: all 0.3s;
+  }
+  a.underline:hover::after {
+    opacity: 1;
+    left: 0;
+    width: 100%;
+  }
 }
-a.line:hover::after {
-  opacity: 1;
-  left: 0;
-  width: 100%;
+.nobreak {
+  white-space: nowrap;
 }
 
 body {
+  position: relative;
   background-color: #181719;
   color: #ffffff;
   min-height: 100vh;
@@ -43,7 +49,8 @@ body {
   justify-content: space-between;
   max-width: 1440px;
   margin: 0 auto;
-  padding: min(42px, 4vw) min(76px, 6vw);
+  padding: min(42px, 4vw) min(76px, 4vw);
+  overflow-x: hidden;
 }
 
 header {
@@ -57,6 +64,16 @@ header h1 {
   text-transform: uppercase;
   padding: 8px;
   border: 1px solid #ffffff;
+}
+header input[type=checkbox],
+header label {
+  display: none;
+  fill: #ffffff;
+  cursor: pointer;
+}
+header label svg {
+  width: 32px;
+  height: auto;
 }
 header nav {
   font-family: "Montserrat", sans-serif;
@@ -73,7 +90,7 @@ main {
   flex-wrap: wrap;
   gap: 6vw 2vw;
   justify-content: space-between;
-  padding-top: min(80px, 10vw);
+  padding: min(80px, 10vw) 0;
 }
 main .pres {
   flex: 1 1 300px;
@@ -82,14 +99,14 @@ main .pres h2 {
   font-family: "Lora", serif;
   font-size: 48px;
   line-height: 61px;
-  margin-bottom: 40px;
+  margin-bottom: min(42px, 4vw);
 }
 main .pres p {
   font-family: "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 24px;
   line-height: 29px;
-  margin-bottom: 48px;
+  margin-bottom: min(42px, 4vw);
   width: 75%;
 }
 main .pres a.more {
@@ -128,7 +145,6 @@ main .credential .card h3 {
   line-height: 31px;
   font-weight: 700;
   margin-top: 1em;
-  padding-right: 25%;
 }
 main .credential .profil {
   display: grid;
@@ -151,16 +167,78 @@ main .credential .profil p.role {
   font-size: 12px;
 }
 
-.nobreak {
-  white-space: nowrap;
-}
+@media (max-width: 720px) {
+  header label.open {
+    display: block;
+  }
 
+  header #burger:checked ~ label {
+    position: fixed;
+    top: 4vw;
+    right: 4vw;
+    z-index: 20;
+  }
+  header #burger:checked ~ label.open {
+    display: none;
+  }
+  header #burger:checked ~ label.close {
+    display: block;
+  }
+  header #burger:checked ~ nav {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 1em;
+    padding-top: 30vh;
+    background-color: #181719;
+    z-index: 10;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s;
+  }
+}
+@media (max-width: 500px) {
+  main .pres h2 {
+    font-size: 36px;
+    line-height: 46px;
+  }
+  main .pres p {
+    font-size: 14px;
+    line-height: 17px;
+  }
+  main .pres a.more {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  main .credential .card h3 {
+    font-size: 18px;
+    line-height: 23px;
+  }
+  main .credential .profil img.avatar {
+    width: 36px;
+  }
+  main .credential p.name {
+    font-size: 12px;
+  }
+  main .credential p.role {
+    font-size: 10px;
+  }
+}
 footer {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 14px;
   text-align: center;
-  margin-top: min(100px, 12vw);
   color: #a9a9a9;
 }
 footer a,

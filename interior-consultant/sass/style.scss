@@ -10,36 +10,45 @@
 a {
   text-decoration: none;
   color: inherit;
-}
-
-a.line {
-  color: inherit;
-  text-decoration: none;
-  position: relative;
-  padding: 0.5em;
 
   &.active {
     font-weight: 700;
     cursor: default;
   }
-  &:not(.active)::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    opacity: 0;
-    border: 1px solid #ffffff80;
-    transition: all 0.3s;
-  }
-  &:hover::after {
-    opacity: 1;
-    left: 0;
-    width: 100%;
+}
+
+// desktop hover
+@media (hover: hover) and (pointer: fine) {
+  a.underline {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    padding: 0.5em;
+
+    &:not(.active)::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 0;
+      opacity: 0;
+      border: 1px solid #ffffff80;
+      transition: all 0.3s;
+    }
+    &:hover::after {
+      opacity: 1;
+      left: 0;
+      width: 100%;
+    }
   }
 }
 
+.nobreak {
+  white-space: nowrap;
+}
+
 body {
+  position: relative;
   background-color: #181719;
   color: #ffffff;
   min-height: 100vh;
@@ -48,7 +57,8 @@ body {
   justify-content: space-between;
   max-width: 1440px;
   margin: 0 auto;
-  padding: min(42px, 4vw) min(76px, 6vw);
+  padding: min(42px, 4vw) min(76px, 4vw);
+  overflow-x: hidden;
 }
 
 header {
@@ -62,6 +72,18 @@ header {
     text-transform: uppercase;
     padding: 8px;
     border: 1px solid #ffffff;
+  }
+
+  input[type="checkbox"],
+  label {
+    display: none;
+    fill: #ffffff;
+    cursor: pointer;
+  }
+
+  label svg {
+    width: 32px;
+    height: auto;
   }
 
   nav {
@@ -80,7 +102,7 @@ main {
   flex-wrap: wrap;
   gap: 6vw 2vw;
   justify-content: space-between;
-  padding-top: min(80px, 10vw);
+  padding: min(80px, 10vw) 0;
 
   .pres {
     flex: 1 1 300px;
@@ -89,14 +111,14 @@ main {
       font-family: "Lora", serif;
       font-size: 48px;
       line-height: 61px;
-      margin-bottom: 40px;
+      margin-bottom: min(42px, 4vw);
     }
     p {
       font-family: "Montserrat", sans-serif;
       font-weight: 300;
       font-size: 24px;
       line-height: 29px;
-      margin-bottom: 48px;
+      margin-bottom: min(42px, 4vw);
       width: 75%;
     }
     a.more {
@@ -138,7 +160,6 @@ main {
         line-height: 31px;
         font-weight: 700;
         margin-top: 1em;
-        padding-right: 25%;
       }
     }
     .profil {
@@ -165,8 +186,81 @@ main {
   }
 }
 
-.nobreak {
-  white-space: nowrap;
+// burger menu
+@media (max-width: 720px) {
+  header label.open {
+    display: block;
+  }
+
+  header #burger:checked {
+    & ~ label {
+      position: fixed;
+      top: 4vw;
+      right: 4vw;
+      z-index: 20;
+
+      &.open {
+        display: none;
+      }
+      &.close {
+        display: block;
+      }
+    }
+    & ~ nav {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  header nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 1em;
+    padding-top: 30vh;
+    background-color: #181719;
+    z-index: 10;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s;
+  }
+}
+
+// mobile
+@media (max-width: 500px) {
+  main .pres {
+    h2 {
+      font-size: 36px;
+      line-height: 46px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 17px;
+    }
+    a.more {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  main .credential {
+    .card h3 {
+      font-size: 18px;
+      line-height: 23px;
+    }
+    .profil img.avatar {
+      width: 36px;
+    }
+    p.name {
+      font-size: 12px;
+    }
+    p.role {
+      font-size: 10px;
+    }
+  }
 }
 
 footer {
@@ -174,7 +268,6 @@ footer {
   font-weight: 600;
   font-size: 14px;
   text-align: center;
-  margin-top: min(100px, 12vw);
   color: #a9a9a9;
 
   a,

@@ -10,32 +10,43 @@
 <body>
   <header>
     <h1>this interior</h1>
+    <input type="checkbox" id="burger">
+    <label for="burger" class="open">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+      </svg>
+    </label>
+    <label for="burger" class="close">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </label>
     <nav>
-      <a href="#" class="active line">Home</a>
-      <a href="#" class="line">Collection</a>
-      <a href="#" class="line">About</a>
-      <a href="#" class="line">Contact</a>
+      <a href="#" class="active underline">Home</a>
+      <a href="#" class="underline">Collection</a>
+      <a href="#" class="underline">About</a>
+      <a href="#" class="underline">Contact</a>
     </nav>
   </header>
   <main>
     <div class="pres">
       <h2>Modern interior</h2>
       <p>A full-Service residential & commercial interior design and staging company offering professional organizing & <span class="nobreak">eco-services.</span></p>
-      <a href="#" class="more line">Read more
+      <a href="#" class="more underline">Read more
         <svg viewBox="0 0 24 24">
           <path d="M22 12l-4-4v3H3v2h15v3z"/>
         </svg>
       </a>
     </div>
     <div class="credential">
-      <img src="./assets/photo1.png" alt="Interior design reference">
+      <img src="./assets/photo1.png" alt="White lounge with a large frame on the wall displaying 9 close-up pictures of yellow doors">
       <div class="card">
         <div class="profil">
           <img src="./assets/photo2.png" alt="Aliza Webber's portrait" class="avatar">
           <p class="name">Aliza Webber</p>
           <p class="role">Interior designer</p>
         </div>
-        <h3>Designed in 2020 by Aliza Webber</h3>
+        <h3>Designed in 2020 by <span class="nobreak">Aliza Webber</span></h3>
       </div>
     </div>
   </main>
