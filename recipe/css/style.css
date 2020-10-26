@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap");
+.highlight {
+  color: #f2994a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: content-box;
+  max-width: 969px;
+  margin: 0 auto;
+  padding: min(52px, 4vw);
+}
+
+header {
+  margin-bottom: min(20px, 2vw);
+}
+header h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+header .desc {
+  font-size: clamp(0.7rem, 1.1666666667vw, 0.875rem);
+  display: flex;
+  align-items: baseline;
+  column-gap: 1em;
+  margin: 1rem 0 2rem;
+}
+header .desc img {
+  width: 13px;
+}
+header .desc p {
+  width: max(70%, 290px);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 125%;
+  color: #4f4f4f;
+}
+header img {
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: min(40px, 5vw);
+  margin-bottom: min(50px, 5vw);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  row-gap: clamp(1.25rem, 4vw, 3rem);
+}
+
+.row-col {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: clamp(1.25rem, 4vw, 3rem);
+}
+.row-col > * {
+  flex: 1 0 0;
+}
+
+.grid {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.625rem, 1.1666666667vw, 0.875rem);
+  color: #333333;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: repeat(2, max-content);
+  gap: 4px 1em;
+  align-items: center;
+}
+.grid img {
+  width: 2em;
+  grid-row: 1/-1;
+}
+.grid .unit {
+  font-size: 0.7em;
+  font-weight: 700;
+  color: #bdbdbd;
+}
+.grid .quantity {
+  font-weight: 500;
+}
+
+aside {
+  flex: 1 1 0;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+}
+
+main {
+  flex: 5 1 0;
+  min-width: min(500px, 100%);
+  color: #333333;
+  margin-bottom: min(50px, 5vw);
+}
+main h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  margin-bottom: min(30px, 3vw);
+}
+main a.ref {
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-size: clamp(0.75rem, 1.3333333333vw, 1rem);
+  color: #bdbdbd;
+}
+
+section {
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.875rem, 1.3333333333vw, 1rem);
+  line-height: 156%;
+}
+section .list {
+  margin-bottom: min(30px, 3vw);
+}
+section h4 {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  margin-bottom: min(30px, 3vw);
+}
+section label {
+  display: flex;
+  align-items: flex-start;
+  margin: min(12px, 2vw) 0;
+  cursor: pointer;
+}
+section label input {
+  display: none;
+}
+section label input:checked ~ svg {
+  fill: #f2994a;
+  stroke: none;
+}
+section label svg {
+  flex: 0 0 auto;
+  height: 21px;
+  stroke: #828282;
+  margin-right: 0.6em;
+}
+section.instructions {
+  margin-bottom: min(30px, 3vw);
+}
+section.instructions ul {
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: min(30px, 3vw);
+}
+section.instructions li {
+  display: flex;
+}
+section.instructions li::before {
+  flex: 0 0 auto;
+  counter-increment: steps;
+  content: "" counter(steps);
+  display: block;
+  width: 36px;
+  height: 36px;
+  background-color: #f2994a;
+  border-radius: 6px;
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  margin-right: 0.5em;
+}
+section strong {
+  font-weight: 700;
+}
+section em {
+  font-style: italic;
+}
+
+footer {
+  margin-top: auto;
+  margin-bottom: min(40px, 4vw);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  color: #a9a9a9;
+}
+footer a,
+footer a:active,
+footer a:visited {
+  border-bottom: 1px solid currentColor;
+}
+
+/*# sourceMappingURL=style.css.map */
